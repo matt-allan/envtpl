@@ -9,14 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - uses: goto-bus-stop/setup-zig@v1
         with:
@@ -27,3 +23,24 @@ jobs:
         
 #       - name: Test
 #         run: zig build test
+
+      - name: Build artifacts
+        run: |
+          set -e
+          declare -a targets=("x86_64-linux" "x86_64-macos" "aarch64-macos")
+
+          for target in "${targets[@]}"; do
+            mkdir -p artifacts/$target
+            echo "Building target ${target}..."	    
+            zig build -Dtarget=${target} -Drelease-small --prefix artifacts/${target}/
+            pushd artifacts/${target}/
+            tar cfJ ${target}.tar.xz bin/*
+            mv ${target}.tar.xz ../
+            popd
+          done
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: builds
+          path: artifacts/*.tar.xz
