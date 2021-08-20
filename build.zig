@@ -14,6 +14,7 @@ pub fn build(b: *std.build.Builder) void {
     const exe = b.addExecutable("envtpl", "src/main.zig");
     exe.setTarget(target);
     exe.setBuildMode(mode);
+    exe.single_threaded = true;
     exe.install();
 
     const run_cmd = exe.run();
