@@ -11,7 +11,7 @@ TBD
 The `envtpl` binary expects input on STDIN and writes to STDIN. Any template strings of the format `${NAME}` will be replaced with the value of the environment variable matching `NAME`.
 
 ```sh
-$ echo 'Hello ${USER}!' | tplenv
+$ echo 'Hello ${USER}!' | envtpl
 Hello matt!
 ```
 
@@ -20,6 +20,7 @@ Hello matt!
 - Doesn't replace environment variables that aren't wrapped in curly braces. Avoids issues with variables that aren't meant to be replaced in the same file.
 - Doesn't replace environment variables when the case does not match.
 - No `--variables` option. Use [`env -i`](https://linux.die.net/man/1/env) if you need that functionality.
+- No dynamic memory allocations.
 - Available as a standalone, cross platform binary that's easy to install without a package manager.
 - Written in Zig instead of C.
 - Much smaller: ~60KiB instead of the ~19MB you will have to download to get `envsubst`.
