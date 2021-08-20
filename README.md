@@ -17,13 +17,14 @@ Hello matt!
 
 ## Differences from envsubst
 
-- Doesn't replace environment variables that aren't wrapped in curly braces. Avoids issues with variables that aren't meant to be replaced in the same file.
-- Doesn't replace environment variables when the case does not match.
-- No `--variables` option. Use [`env -i`](https://linux.die.net/man/1/env) if you need that functionality.
-- No dynamic memory allocations.
-- Available as a standalone, cross platform binary that's easy to install without a package manager.
-- Written in Zig instead of C.
-- Much smaller: ~60KiB instead of the ~19MB you will have to download to get `envsubst`.
+- Doesn't replace environment variables that aren't wrapped in curly braces. Avoids issues with variables that aren't meant to be replaced in the same file
+- Doesn't replace environment variables when the case does not match
+- No `--variables` option. Use [`env -i`](https://linux.die.net/man/1/env) if you need that functionality
+- No dynamic memory allocations
+- Available as a standalone, cross platform binary that's easy to install without a package manager
+- Written in Zig instead of C
+- Much smaller: ~100K instead of the ~19MB you will have to download to get `envsubst`
+- Native binaries for ARM Macs and Alpine containers (links [musl](https://musl.libc.org/) instead of gcc)
 
 # Why?
 
