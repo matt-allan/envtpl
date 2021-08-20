@@ -4,7 +4,7 @@ A tiny binary for templating plain text with environment variables. Like [`envsu
 
 # Installation
 
-TBD
+Until a stable release is tagged you can download binaries for all supported platforms from the [latest successful build on the main branch](https://github.com/matt-allan/envtpl/actions).
 
 # Usage
 
