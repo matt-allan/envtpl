@@ -5,23 +5,23 @@ const cstd = @cImport({
 });
 
 pub fn envtpl(writer: anytype, line: []const u8) !void {
-    var openingBracePos: ?usize = null;
-    var closingBracePos: ?usize = null;
+    var opening_brace_pos: ?usize = null;
+    var closing_brace_pos: ?usize = null;
 
     for (line) |c, i| {
         switch (c) {
             '$' => blk: {
-                openingBracePos = std.mem.indexOfPos(u8, line, i + 1, "{");
+                opening_brace_pos = std.mem.indexOfPos(u8, line, i + 1, "{");
                 // offset by opening brace, closing brace, and at least one char
-                closingBracePos = std.mem.indexOfPos(u8, line, i + 3, "}");
+                closing_brace_pos = std.mem.indexOfPos(u8, line, i + 3, "}");
 
                 // If there aren't braces, it's just something that starts with $
-                if (openingBracePos == null or closingBracePos == null) {
+                if (opening_brace_pos == null or closing_brace_pos == null) {
                     try writer.print("{c}", .{c});
                     break :blk;
                 }
 
-                const name = line[i + 2 .. closingBracePos.?];
+                const name = line[i + 2 .. closing_brace_pos.?];
                 const value = std.os.getenv(name);
 
                 if (value) |v| {
@@ -30,7 +30,7 @@ pub fn envtpl(writer: anytype, line: []const u8) !void {
             },
             else => {
                 // Only print the actual contents if we aren't inside a template string
-                if (openingBracePos == null or closingBracePos == null or closingBracePos.? < i) {
+                if (opening_brace_pos == null or closing_brace_pos == null or closing_brace_pos.? < i) {
                     try writer.print("{c}", .{c});
                 }
             },
