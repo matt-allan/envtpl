@@ -1,6 +1,6 @@
 # tplenv
 
-A tiny binary for templating plain text with environment variables. Like [`envsubst`](https://linux.die.net/man/1/envsubst) but smaller and simpler.
+A tiny binary for templating plain text with environment variables. Like [`envsubst`](https://linux.die.net/man/1/envsubst) but simpler.
 
 # Installation
 
@@ -23,7 +23,7 @@ Hello matt!
 - No dynamic memory allocations
 - Available as a standalone, cross platform binary that's easy to install without a package manager
 - Written in Zig instead of C
-- Much smaller: ~100K instead of the ~19MB you will have to download to get `envsubst`
+- Much smaller downloads: ~100K instead of the ~19MB you will have to download to get `envsubst` (the binary itself is about the same size though)
 - Native binaries for ARM Macs and Alpine containers (links [musl](https://musl.libc.org/) instead of gcc)
 
 # Why?
