@@ -8,7 +8,7 @@ TBD
 
 # Usage
 
-The `tplenv` binary expects input on STDIN and writes to STDIN. Any template strings of the format `${NAME}` will be replaced with the value of the environment variable matching `NAME`.
+The `envtpl` binary expects input on STDIN and writes to STDIN. Any template strings of the format `${NAME}` will be replaced with the value of the environment variable matching `NAME`.
 
 ```sh
 $ echo 'Hello ${USER}!' | tplenv
