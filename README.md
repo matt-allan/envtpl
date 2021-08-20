@@ -1,4 +1,4 @@
-# tplenv
+# envtpl
 
 A tiny binary for templating plain text with environment variables. Like [`envsubst`](https://linux.die.net/man/1/envsubst) but simpler.
 
