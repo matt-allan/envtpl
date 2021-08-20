@@ -30,5 +30,6 @@ pub fn build(b: *std.build.Builder) void {
 
     var envtpl_tests = b.addTest("src/envtpl.zig");
     envtpl_tests.setBuildMode(.Debug);
+    envtpl_tests.linkSystemLibrary("c");
     test_step.dependOn(&envtpl_tests.step);
 }
