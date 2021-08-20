@@ -21,8 +21,8 @@ jobs:
       - name: Build
         run: zig build
         
-#       - name: Test
-#         run: zig build test
+      - name: Test
+        run: zig build test
 
       - name: Build artifacts
         run: |
