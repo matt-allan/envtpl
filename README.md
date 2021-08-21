@@ -4,7 +4,17 @@ A tiny binary for templating plain text with environment variables. Like [`envsu
 
 # Installation
 
-Until a stable release is tagged you can download binaries for all supported platforms from the [latest successful build on the main branch](https://github.com/matt-allan/envtpl/actions).
+Binaries for all supported platforms are available for download on the [releases page](https://github.com/matt-allan/envtpl/releases).
+
+If you're looking for a one liner to download the binary, you can use this:
+
+```
+curl -L https://github.com/matt-allan/envtpl/releases/download/0.1.0/aarch64-macos.tar.xz | tar -xJ --strip-components=1 -C .
+```
+
+Replace the filename with the architecture you want (listed on the releases page). The binary will be available in your current directory as `envtpl`.
+
+You can also download binaries for unreleased versions from the [latest successful build on the main branch](https://github.com/matt-allan/envtpl/actions).
 
 # Usage
 
