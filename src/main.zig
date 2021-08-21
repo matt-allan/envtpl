@@ -1,6 +1,8 @@
 const std = @import("std");
 usingnamespace @import("envtpl.zig");
 
+const version = "0.2.0";
+
 const help = 
     \\ Usage: envtpl
     \\
@@ -14,8 +16,6 @@ const help =
     \\ template strings of the format `${NAME}` will be replaced with the value
     \\ of the environment variable matching `NAME`.
 ;
-
-const version = "0.1.0";
 
 pub fn main() !void {
     var args = std.process.args();

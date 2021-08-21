@@ -9,7 +9,7 @@ Binaries for all supported platforms are available for download on the [releases
 If you're looking for a one liner to download the binary, you can use this:
 
 ```
-curl -L https://github.com/matt-allan/envtpl/releases/download/0.1.0/aarch64-macos.tar.xz | tar -xJ --strip-components=1 -C .
+curl -L https://github.com/matt-allan/envtpl/releases/download/0.2.0/aarch64-macos.tar.xz | tar -xJ --strip-components=1 -C .
 ```
 
 Replace the filename with the architecture you want (listed on the releases page). The binary will be available in your current directory as `envtpl`.
