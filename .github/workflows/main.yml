@@ -18,6 +18,9 @@ jobs:
       - name: Test
         run: zig build test
 
+      - name: Integration Tests
+        run: bash ./test/test.sh
+
       - name: Build artifacts
         run: |
           set -e
