@@ -46,6 +46,8 @@ pub fn main() !void {
     while (try stdin.readUntilDelimiterOrEof(&buf, '\n')) |line| {
         try envtpl(stdout.writer(), line);
 
+        try stdout.writer().print("\n", .{});
+
         try stdout.flush();
     }
 }
