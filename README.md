@@ -18,11 +18,17 @@ You can also download binaries for unreleased versions from the [latest successf
 
 # Usage
 
-The `envtpl` binary expects input on STDIN and writes to STDOUT. Any template strings of the format `${NAME}` will be replaced with the value of the environment variable matching `NAME`.
+The `envtpl` binary expects input on STDIN and writes to STDOUT. Any template strings of the format `${NAME}` will be replaced with the value of the environment variable matching `NAME`. For example:
 
 ```sh
 $ echo 'Hello ${USER}!' | envtpl
 Hello matt!
+```
+
+For the typical use case of templating a source file, you can use [redirection](https://wiki.bash-hackers.org/howto/redirection_tutorial):
+
+```
+envtpl < nginx.tpl.conf > nginx.conf
 ```
 
 ## Differences from envsubst
