@@ -1,0 +1,7 @@
+Hello!
+
+This is some text.
+
+All new lines should be preserved.
+
+So should this: $cash
