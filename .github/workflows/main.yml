@@ -24,7 +24,7 @@ jobs:
       - name: Build artifacts
         run: |
           set -e
-          declare -a targets=("x86_64-linux" "x86_64-linux-musl" "x86_64-macos" "aarch64-macos")
+          declare -a targets=("x86_64-linux" "x86_64-linux-musl" "x86_64-macos" "aarch64-linux" "aarch64-macos")
 
           for target in "${targets[@]}"; do
             mkdir -p artifacts/$target
@@ -51,4 +51,5 @@ jobs:
             artifacts/x86_64-linux.tar.xz
             artifacts/x86_64-linux-musl.tar.xz
             artifacts/x86_64-macos.tar.xz
+            artifacts/aarch64-linux.tar.xz
             artifacts/aarch64-macos.tar.xz
