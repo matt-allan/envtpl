@@ -9,10 +9,16 @@ Binaries for all supported platforms are available for download on the [releases
 If you're looking for a one liner to download the binary, you can use this:
 
 ```
-curl -L https://github.com/matt-allan/envtpl/releases/download/0.4.0/aarch64-macos.tar.xz | tar -xJ --strip-components=1 -C .
+ENVTPL_ARCH=x86_64-linux; curl -L https://github.com/matt-allan/envtpl/releases/download/0.4.0/${ENVTPL_ARCH}.tar.xz | tar -xJ --strip-components=1 -C .
 ```
 
-Replace the filename with the architecture you want (listed on the releases page). The binary will be available in your current directory as `envtpl`.
+Replace the `ENVTPL_ARCH` variable with the architecture you want. The binary will be available in your current directory as `envtpl`. Available architectures:
+
+- `aarch64-linux`
+- `aarch64-macos`
+- `x86_64-linux-musl` 
+- `x86_64-linux`
+- `x86_64-macos`
 
 You can also download binaries for unreleased versions from the [latest successful build on the main branch](https://github.com/matt-allan/envtpl/actions).
 
@@ -38,9 +44,11 @@ envtpl < nginx.tpl.conf > nginx.conf
 - No `--variables` option. Use [`env -i`](https://linux.die.net/man/1/env) if you need that functionality
 - No dynamic memory allocations
 - Available as a standalone, cross platform binary that's easy to install without a package manager
+- Statically linked. Doesn't even link libc
 - Written in Zig instead of C
 - Much smaller downloads: ~100K instead of the ~19MB you will have to download to get `envsubst` (the binary itself is about the same size though)
-- Native binaries for ARM Macs and Alpine containers (links [musl](https://musl.libc.org/) instead of gcc)
+- Native binaries for ARM Macs and Alpine containers
+- MIT licensed
 
 # Why?
 
